@@ -1,1 +1,2 @@
-Designed to help clinics manage their patients in a more organized and efficient way in real life
+QuickCare: Clinic Patient Management System
+- Designed to help clinics manage their patients in a more organized and efficient way in real life
