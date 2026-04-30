@@ -179,7 +179,21 @@ public:
         }
     }
     void processPatient() {
-
+        if (!priorityPatients.empty()) {
+            Patient patient = priorityPatients.top();
+            priorityPatients.pop();
+            actionStack.push(Action{Action::PROCESS_PRIORITY, patient});
+            cout << "[PROCESSED] " << "Priority patient named: " << patient.name << "." << endl;
+        }
+        else if (!normalPatients.empty()) {
+            Patient patient = normalPatients.front();
+            normalPatients.pop();
+            actionStack.push(Action{Action::PROCESS_NORMAL, patient});
+            cout << "[PROCESSED] " << " patient named: " << patient.name << "." << endl;
+        }
+        else {
+            cout << "[INFO] No patients found." << endl;
+        }
     }
     void undoAction() {
 
