@@ -196,7 +196,44 @@ public:
         }
     }
     void undoAction() {
+        if (actionStack.empty()) {
+            cout << "[ALERT] Nothing to undo.\n";
+            return;
+        }
 
+
+        Action last = actionStack.top();
+        actionStack.pop();
+
+
+        if (last.type == Action::ADD_PRIORITY) {
+            priority_queue<Patient> temp;
+            priorityPatients.pop();
+            while (!priorityPatients.empty()) {
+                temp.push(priorityPatients.top());
+                priorityPatients.pop();
+            }
+            priorityPatients = temp;
+            cout << "[INFO] Undo last added priority patient." << endl;
+        }
+        else if (last.type == Action::ADD_NORMAL) {
+            queue<Patient> temp;
+            normalPatients.pop();
+            while (!normalPatients.empty()) {
+                temp.push(normalPatients.front());
+                normalPatients.pop();
+            }
+            normalPatients = temp;
+            cout << "[INFO] Undo last added patient." << endl;
+        }
+        else if (last.type == Action::PROCESS_PRIORITY) {
+            priorityPatients.push(last.data);
+            cout << "[INFO] Undo processing of priority patient." << endl;
+        }
+        else if (last.type == Action::PROCESS_NORMAL) {
+            normalPatients.push(last.data);
+            cout << "[INFO] Undo processing of patient." << endl;
+        }
     }
 };
 
