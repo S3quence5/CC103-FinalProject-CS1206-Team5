@@ -106,39 +106,47 @@ public:
         cout << "[4] Display All" << endl;
         cout << "[5] Exit" << endl;
         cout << "-----------------------------------------------------" << endl;
+   }
 
+    void showPriorityRecursive(priority_queue<Patient>& pq, int index) {
+        if (pq.empty()) return;                 
 
+        Patient patient = pq.top();
+        pq.pop();
+        cout << index << ". " << patient.name << endl;
+
+        showPriorityRecursive(pq, index + 1);   
     }
+
+
+       void showNormalRecursive(queue<Patient>& q, int index) {
+        if (q.empty()) return;      
+
+        Patient patient = q.front();
+        q.pop();
+        cout << index << ". " << patient.name << endl;
+
+        showNormalRecursive(q, index + 1);      
+    }
+
     void showPatients() {
-        if (priorityPatients.empty())
+        cout << "[Priority Patients]" << endl;
+        priority_queue<Patient> tempPriority = priorityPatients;
+        if (tempPriority.empty())
             cout << "[Priority Patients is empty]" << endl;
         else
-            cout << "[Priority Patients]" << endl;
-        priority_queue<Patient> tempPriorityPatients = priorityPatients;
-        for (int i = 0; i < priorityPatients.size(); i++) {
-            Patient patient = tempPriorityPatients.top();
-            cout << i << ". " << patient.name << endl;
-            tempPriorityPatients.pop();
-        }
-
+            showPriorityRecursive(tempPriority, 0);
 
         cout << endl;
 
-
-        if (normalPatients.empty())
-            cout << "[Normal Patients is empty]" << endl << endl;
+        cout << "[Normal Patients]" << endl;
+        queue<Patient> tempNormal = normalPatients;
+        if (tempNormal.empty())
+            cout << "[Normal Patients is empty]" << endl;
         else
-            cout << "[Normal Patients]" << endl;
-
-
-        priority_queue<Patient> tempNormalPatients = priorityPatients;
-        for (int i = 0; i < normalPatients.size(); i++) {
-            Patient patient = tempNormalPatients.top();
-            cout << i << ". " << patient.name << endl;
-            tempNormalPatients.pop();
-        }
-       
+            showNormalRecursive(tempNormal, 0);
     }
+
     void addPatient() {
         Patient patient;
         cout << "[Patient Details]" << endl;
