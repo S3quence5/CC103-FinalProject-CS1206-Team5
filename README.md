@@ -43,8 +43,21 @@ We used three main data structures in this project:
 - The user selects an option
 
 If adding a patient:
+- The system collects patient details  
+- It calculates the priority score  
+- The patient is placed in either the priority queue or normal queue  
 
+If processing a patient:
+- The system checks the priority queue first  
+- If empty, it processes from the normal queue  
 
+If undo is selected:
+- The system uses a stack to reverse the last action  
+
+If display is selected:
+- The system shows all patients currently stored  
+
+---
 
 
 
