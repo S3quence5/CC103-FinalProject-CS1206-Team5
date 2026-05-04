@@ -57,9 +57,23 @@ If undo is selected:
 If display is selected:
 - The system shows all patients currently stored  
 
+
+
+
+
+
+
 ---
 
+## Acknowledgement
 
+We would like to thank our instructor for guiding us throughout this project and helping us understand how data structures can be applied to real-world problems like our system.
+
+---
+
+## Conclusion
+
+This project demonstrates how Queue, Priority Queue, and Stack can be used together to manage patients in a clinic. It shows how proper use of data structures can improve efficiency and organization in real-life situations.
 
 
 
