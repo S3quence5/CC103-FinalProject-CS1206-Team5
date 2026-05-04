@@ -40,24 +40,56 @@ We used three main data structures in this project:
 
 ## Algorithm
 - The program displays a menu using a loop  
-- The user selects an option
+- The user selects an option from the menu
 
-If adding a patient:
-- The system collects patient details  
-- It calculates the priority score  
-- The patient is placed in either the priority queue or normal queue  
+When adding a patient:
+- Input patient details
+- Compute priority level
+- Store in priority queue or normal queue
 
-If processing a patient:
-- The system checks the priority queue first  
-- If empty, it processes from the normal queue  
+When processing a patient:
+- Priority queue is checked first
+- If empty, normal queue is used
 
-If undo is selected:
-- The system uses a stack to reverse the last action  
+When undo is selected:
+- The last action is retrieved from the stack
+- The system reverses that action
 
-If display is selected:
-- The system shows all patients currently stored  
+When displaying patients:
+- Recursive functions are used to display:
+  - Priority patients (showPriorityRecursive)
+  - Normal patients (showNormalRecursive)
 
+---
 
+## Iterative vs Recursive
+| Approach | Usage | Notes |
+|---------|------|------|
+| Iterative | Menu loop (`while(true)`) | Controls program flow |
+| Recursive | Display patients | Cleaner logic but uses more memory |
+
+---
+
+## Features
+- Add patient  
+- Process patient  
+- Undo last action  
+- Display all patients  
+- Priority-based processing  
+
+---
+
+## Limitations
+- No database (data is not saved)
+- Undo function is limited in accuracy
+- Console-based only
+
+---
+
+## Future Improvements
+- Improve undo system
+- Add search feature
+- Add graphical interface
 
 
 
