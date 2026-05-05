@@ -17,6 +17,9 @@ Team Name: Health 404 Not Found
 ## Problem Description
 In many clinics, managing patients can be difficult, especially when there are both regular and emergency cases. This can lead to long waiting times and confusion about which patient should be treated first.
 
+---
+
+## Program Description
 QuickCare is a C++ console-based program that helps manage patients in a clinic.
 
 It allows the user to:
